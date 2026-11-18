@@ -1,0 +1,40 @@
+/* Contact-only update — keeps V12 intact elsewhere. */
+.contact-center{padding-bottom:54px}
+.contact-inquiry-area{max-width:1100px;margin:0 auto;position:relative;z-index:2}
+.inquiry-form{background:#151614;color:#f4eadb;border:1px solid rgba(64,45,28,.4);padding:clamp(27px,4.2vw,60px);box-shadow:0 36px 100px rgba(53,37,19,.16)}
+.inquiry-form-head{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding-bottom:40px;border-bottom:1px solid rgba(216,189,147,.23);margin-bottom:34px}
+.inquiry-eyebrow,.inquiry-route,.inquiry-field label,.inquiry-recipient,.inquiry-socials-label{font:600 9px/1.4 Manrope,Arial,sans-serif;letter-spacing:.21em}
+.inquiry-eyebrow{color:#c4a177}.inquiry-form-head h3{font:400 clamp(37px,4.2vw,62px)/1.05 Italiana,Georgia,serif;letter-spacing:-.03em;margin:16px 0 0;color:#f5ecdc}
+.inquiry-form-head h3 em{color:#d7b98b;font-style:italic}
+.inquiry-route{display:flex;align-items:center;gap:18px;color:#c0aa88;white-space:nowrap;margin-top:8px}.inquiry-route span{font-size:18px}
+.inquiry-field-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.inquiry-field{display:flex;flex-direction:column;gap:10px;margin-bottom:32px}
+.inquiry-field label{color:#c5b69f}
+.inquiry-field input,.inquiry-field textarea{appearance:none;display:block;width:100%;padding:15px 0;box-shadow:none;border:0;border-bottom:1px solid #4b4941;border-radius:0;background:transparent;color:#f5ecde;font:400 15px/1.6 Manrope,Arial,sans-serif;outline:none;transition:border-color .25s,background .25s;resize:vertical}
+.inquiry-field input::placeholder,.inquiry-field textarea::placeholder{color:#938b7f;opacity:1}
+.inquiry-field input:hover,.inquiry-field textarea:hover{border-color:#9c8769}
+.inquiry-field input:focus-visible,.inquiry-field textarea:focus-visible{outline:none;border-bottom:1px solid #e1c596;box-shadow:0 1px #e1c596}
+.inquiry-field textarea{min-height:116px;max-height:280px}
+.inquiry-form-foot{display:flex;align-items:center;justify-content:space-between;gap:25px;padding-top:9px}
+.inquiry-recipient{color:#a49a8b;letter-spacing:.11em;line-height:1.8}.inquiry-recipient a{color:#e0cfb3;letter-spacing:0;font-size:12px;margin-left:6px;text-transform:none;overflow-wrap:anywhere}
+.inquiry-recipient a:hover{text-decoration:underline;text-underline-offset:4px}
+.inquiry-submit{display:inline-flex;align-items:center;justify-content:space-between;gap:45px;background:#ddc094;border:1px solid #ddc094;padding:19px 23px;color:#151411;font:700 10px Manrope,Arial,sans-serif;letter-spacing:.17em;white-space:nowrap;transition:background .25s,transform .3s}
+.inquiry-submit span{font-size:18px;font-weight:400}.inquiry-submit:hover{background:#f4e4c8;transform:translateY(-2px)}
+.inquiry-submit:focus-visible,.inquiry-icon-row a:focus-visible{outline:2px solid #ddc094;outline-offset:4px}
+.inquiry-status{min-height:0;margin:0;color:#d8c19d;font-size:12px;line-height:1.6}.inquiry-status:not(:empty){margin-top:18px}
+.inquiry-socials{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:25px 0 0}
+.inquiry-socials-label{color:#473624}
+.inquiry-icon-row{display:flex;gap:12px;align-items:center}
+.inquiry-icon-row a{width:49px;height:49px;border:1px solid rgba(45,33,20,.44);color:#1c1914;display:inline-flex;align-items:center;justify-content:center;transition:background .3s,color .3s,transform .3s,border-color .3s}
+.inquiry-icon-row a:hover{color:#e8c99b;background:#191a17;border-color:#191a17;transform:translateY(-4px)}
+.inquiry-icon-row svg{width:23px;height:23px;display:block}
+@media(max-width:680px){.contact-center{padding-bottom:40px}.inquiry-form-head{display:block;padding-bottom:27px;margin-bottom:26px}.inquiry-route{margin-top:20px}.inquiry-field-grid{grid-template-columns:1fr;gap:0}.inquiry-form-foot{flex-direction:column;align-items:stretch}.inquiry-submit{width:100%}.inquiry-recipient{font-size:9px}.inquiry-icon-row a{width:46px;height:46px}}
+@media(prefers-reduced-motion:reduce){.inquiry-submit,.inquiry-icon-row a{transition:none}}
+
+body.inquiry-in-view #avatar-follower {opacity:0!important;visibility:hidden!important;pointer-events:none!important}
+
+/* Make the email-app action a native, accessible mailto link, styled like the original button. */
+.inquiry-submit{text-decoration:none;cursor:pointer}
+.inquiry-submit:visited{color:#151411}
+.inquiry-status a{color:#e5c794;text-decoration:underline;text-underline-offset:4px}
+.inquiry-status a:hover{color:#fff0d3}

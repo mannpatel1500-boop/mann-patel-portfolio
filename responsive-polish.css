@@ -1,0 +1,133 @@
+/* V13 — Mobile + desktop visual refinement. One avatar. Native scrolling. */
+:root{--responsive-ease:cubic-bezier(.19,1,.22,1)}
+html,body{max-width:100%;overflow-x:clip}
+main>section{scroll-margin-top:64px}
+img,svg,canvas{max-width:100%}
+button,a{-webkit-tap-highlight-color:transparent}
+a:focus-visible,button:focus-visible{outline:2px solid #e0c08d;outline-offset:4px}
+/* Keep the original luxurious composition on large screens with sensible bounds */
+@media(min-width:1200px){
+ .hero .hero-main{max-width:1300px!important}
+ .concept-grid{max-width:1600px;margin-inline:auto}
+ .automation .precision-console{max-width:1500px;margin-inline:auto}
+ .mathgem-feature .product-device{max-width:1510px;margin-inline:auto}
+ .mathgem-feature .device-content{height:clamp(470px,44vw,710px)}
+ .mathgem-feature .device-content img{object-fit:contain;object-position:center center;background:#0b1220}
+ .avatar-follower:not(.is-dense){min-width:216px;min-height:330px}
+}
+/* Tablet: preserve two-column rhythm without wrapping text underneath previews. */
+@media(min-width:701px) and (max-width:1100px){
+ .avatar-follower:not(.is-dense){width:190px!important;height:296px!important;right:0!important}
+ .avatar-follower.is-dense{width:155px!important;height:242px!important}
+ .concept-grid{gap:38px 22px}
+ .concept-image{height:clamp(310px,39vw,480px)}
+ .concept-display strong{font-size:clamp(35px,5.8vw,61px)}
+ .hospitality-center strong{font-size:clamp(44px,6.8vw,90px)}
+ .mathgem-header{gap:25px}
+ .device-content img{object-fit:contain;background:#0b1220}
+ .avatar-tooltip{width:min(300px,calc(100vw - 220px))}
+}
+/* All touch-sized screens: full visual previews and an avatar visitors can actually see. */
+@media(max-width:700px){
+ .avatar-follower,.avatar-follower.visible{width:clamp(142px,39vw,166px)!important;height:clamp(222px,61vw,255px)!important;right:-8px!important;bottom:-7px!important;transform-origin:bottom right!important}
+ .avatar-follower.is-dense:not(.show-tip),.avatar-follower.is-dense:not(.show-tip).visible{width:clamp(124px,34vw,146px)!important;height:clamp(194px,53vw,227px)!important;right:-7px!important;bottom:-6px!important;opacity:.97!important}
+ .avatar-follower.show-tip,.avatar-follower.is-dense.show-tip{width:clamp(158px,43vw,180px)!important;height:clamp(244px,66vw,275px)!important;right:-7px!important;bottom:-7px!important;opacity:1!important}
+ .avatar-follower .avatar-button{touch-action:manipulation}
+ .avatar-follower .avatar-button img{object-position:center bottom}
+ .avatar-follower.show-tip .avatar-tooltip,.avatar-follower.is-dense.show-tip .avatar-tooltip{width:min(310px,calc(100vw - 24px))!important;right:12px!important;bottom:clamp(240px,65vw,280px)!important;max-height:min(48svh,390px);overflow-y:auto;overscroll-behavior:contain;box-shadow:0 18px 80px #0009}
+ .avatar-tooltip h3{font-size:clamp(25px,7vw,31px)}
+ .avatar-tooltip p{font-size:12px;line-height:1.65}
+ .avatar-card-head,.avatar-card-foot{font-size:9px}
+ .avatar-follower.mobile-hero-hidden,.avatar-follower.mobile-hero-hidden.visible{opacity:0!important;visibility:hidden!important;pointer-events:none!important}
+ .avatar-follower.theater-hidden{opacity:0!important;visibility:hidden!important;pointer-events:none!important}
+ /* Preserve the full MathGem interface instead of cropping away content */
+ .mathgem-feature{padding-left:16px!important;padding-right:16px!important}
+ .mathgem-feature .feature-title{font-size:clamp(72px,16.6vw,116px)!important;overflow-wrap:normal}
+ .mathgem-feature .device-content{height:auto!important;aspect-ratio:16/10;min-height:215px;max-height:75svh;background:#0a1320}
+ .mathgem-feature .device-content img{object-fit:contain!important;object-position:center center!important;background:#0a1320}
+ .gallery-shade{height:35px;pointer-events:none}
+ .mathgem-feature .product-device{border-radius:9px}
+ .device-bar{gap:8px!important;padding:0 10px!important}
+ .device-bar>span:not(.device-live){min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+ .gallery-controls{gap:8px;padding:14px 10px!important}
+ .gallery-buttons{flex-shrink:0}
+ .gallery-label strong{font-size:12px}
+ .gallery-label{min-width:0}
+ .mathgem-meta{gap:12px}
+ .mathgem-meta strong{font-size:12px}
+ /* Website studies and film chapter remain readable at phone widths */
+ .website-director .director-copy{max-width:calc(100% - 46px)!important}
+ .website-director .director-copy h3{font-size:clamp(55px,13.2vw,80px)!important;line-height:.96!important;overflow-wrap:break-word;max-width:100%!important}
+ .website-director .director-copy>p{max-width:310px;line-height:1.72}
+ .website-director .director-enter{padding:15px 17px}
+ .concept-grid .concept-image{height:clamp(340px,110vw,470px)!important}
+ .concept-grid .concept-display strong{font-size:clamp(42px,10.1vw,64px)!important;line-height:.95}
+ .concept-grid .hospitality-center strong{font-size:clamp(43px,12vw,63px)!important;max-width:100%}
+ .concept-grid .commerce-copy h3{font-size:clamp(40px,9.7vw,59px)!important}
+ .concept-meta{gap:13px}
+ .concept-meta h3{font-size:23px}
+ /* The n8n map is intentionally pannable, never squeezed to illegibility. */
+ .precision-viewport{overflow-x:auto!important;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;touch-action:pan-x pan-y;scrollbar-width:thin}
+ .precision-console{min-width:0;width:100%}
+ .precision-mobile-hint{display:flex!important}
+ .precision-inspector-grid{min-width:0}
+ .precision-inspector-grid p{padding-right:0!important}
+ .agent-editorial-map{margin:6px 10px 18px;padding:12px}
+ .agent-map-flow{gap:5px}
+ .agent-map-flow>div,.agent-map-outs>div{padding:9px 5px;min-height:56px}
+ .agent-map-flow strong,.agent-map-outs strong{font-size:9px}
+ .inquiry-form{padding:24px 20px!important}
+ .inquiry-field input,.inquiry-field textarea{font-size:16px!important}
+ .inquiry-socials{flex-wrap:wrap;row-gap:15px}
+ .inquiry-icon-row{margin-left:auto}
+}
+@media(max-width:370px){
+ .avatar-follower,.avatar-follower.visible{width:138px!important;height:216px!important}
+ .avatar-follower.is-dense:not(.show-tip){width:121px!important;height:188px!important}
+ .avatar-follower.show-tip,.avatar-follower.is-dense.show-tip{width:155px!important;height:240px!important}
+ .mathgem-feature .feature-title{font-size:clamp(66px,16vw,90px)!important}
+ .director-copy h3{font-size:clamp(48px,13vw,58px)!important}
+ .hero .hero-name{font-size:clamp(61px,16.4vw,87px)!important}
+}
+/* Accessibility and browser autofill never break the color palette */
+.inquiry-field input:-webkit-autofill,.inquiry-field input:-webkit-autofill:hover,.inquiry-field input:-webkit-autofill:focus{
+ -webkit-text-fill-color:#f4eadb!important;-webkit-box-shadow:0 0 0 100px #151614 inset!important;caret-color:#f4eadb;transition:background-color 9999s ease-out 0s;
+}
+/* Compact gallery zoom control */
+.device-content{isolation:isolate}
+.gallery-zoom{position:absolute;top:14px;right:14px;z-index:5;display:flex;align-items:center;gap:8px;background:#101a24dd;color:#e9e2d8;border:1px solid #c7ab825e;border-radius:3px;padding:9px 12px;font:600 9px Manrope,Arial,sans-serif;letter-spacing:.12em;cursor:pointer;backdrop-filter:blur(9px)}
+.gallery-zoom:hover{background:#dfc093;color:#11161b}
+.gallery-zoom svg{width:16px;height:16px}
+.gallery-lightbox{border:1px solid #cbb58a4d;background:#101317;color:#f3ebdd;padding:0;width:min(94vw,1460px);max-width:94vw;max-height:93dvh;box-shadow:0 40px 100px #000b}
+.gallery-lightbox::backdrop{background:#030607dd;backdrop-filter:blur(14px)}
+.gallery-lightbox-head{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:15px 18px;border-bottom:1px solid #c7a97e2e;font:600 10px Manrope,Arial,sans-serif;letter-spacing:.13em}
+.gallery-lightbox-close{border:1px solid #c6a77a70;background:none;color:#f4eadb;padding:9px 13px;cursor:pointer}
+.gallery-lightbox-main{height:min(70dvh,850px);display:flex;align-items:center;justify-content:center;padding:10px 16px}
+.gallery-lightbox-main img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain}
+.gallery-lightbox-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 18px 16px;color:#b9ad9d;font-size:11px}
+.gallery-lightbox-foot button{background:transparent;color:#f4eadb;border:1px solid #7d725d;padding:9px 15px;cursor:pointer}
+@media(max-width:700px){.gallery-zoom{top:9px;right:auto;left:9px;padding:9px;font-size:0}.gallery-zoom svg{width:20px;height:20px}.gallery-lightbox-main{height:min(67dvh,660px);padding:8px}.gallery-lightbox-head{padding:12px}.gallery-lightbox-foot{padding:10px 12px 13px}}
+@media(prefers-reduced-motion:reduce){.gallery-zoom,.gallery-lightbox button{transition:none!important}}
+
+@media(max-width:700px){
+ .avatar-follower,.avatar-follower.visible{width:clamp(158px,43vw,184px)!important;height:clamp(245px,66vw,281px)!important;right:-29px!important}
+ .avatar-follower.is-dense:not(.show-tip),.avatar-follower.is-dense:not(.show-tip).visible{width:clamp(158px,42vw,180px)!important;height:clamp(245px,65vw,275px)!important;right:-31px!important}
+ .avatar-follower.show-tip,.avatar-follower.is-dense.show-tip{width:clamp(177px,47vw,201px)!important;height:clamp(272px,73vw,310px)!important;right:-20px!important}
+ .avatar-follower.show-tip .avatar-tooltip,.avatar-follower.is-dense.show-tip .avatar-tooltip{bottom:clamp(266px,72vw,314px)!important}
+ body.visual-focus #avatar-follower:not(.show-tip){opacity:0!important;visibility:hidden!important;pointer-events:none!important}
+}
+@media(max-width:370px){.avatar-follower.is-dense:not(.show-tip){width:154px!important;height:240px!important;right:-32px!important}}
+
+/* Create a deliberate text/guide split on narrow phones instead of overlaying paragraphs. */
+@media(max-width:700px){
+ .manifesto .biography,.manifesto .signature{max-width:calc(100% - 128px)}
+ .services .service-card p,.services .service-card ul{max-width:calc(100% - 118px)}
+ .about .about-text{max-width:calc(100% - 120px)}
+}
+@media(max-width:370px){
+ .manifesto .biography,.manifesto .signature{max-width:calc(100% - 104px)}
+ .services .service-card p,.services .service-card ul,.about .about-text{max-width:calc(100% - 98px)}
+}
+
+.workflow-pan-controls{display:none}
+@media(max-width:760px){.workflow-pan-controls{display:flex;align-items:center;justify-content:space-between;gap:12px;background:#15191b;padding:10px 12px;border-bottom:1px solid #c6a97d23;color:#cfb78f;font:600 8px Manrope,Arial,sans-serif;letter-spacing:.1em}.workflow-pan-controls>div{display:flex;align-items:center;gap:8px}.workflow-pan-controls button{width:36px;height:35px;border:1px solid #b79b6e7a;background:#242525;color:#f2e7d5;font-size:19px}.workflow-pan-controls button:disabled{opacity:.3}.workflow-pan-count{min-width:34px;text-align:center}}
