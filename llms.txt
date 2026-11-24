@@ -1,0 +1,27 @@
+# Mann Patel
+
+> Personal portfolio of Mann Patel, showcasing website building, AI automation, and the creator's work on Mathgem.
+
+## Overview
+
+Mann Patel is a website builder and AI automation builder. This portfolio presents selected work, capabilities, and projects.
+
+## Main areas
+
+- **Website building** — design and development of polished, modern websites for businesses.
+- **AI automation** — workflow and automation solutions built with tools such as n8n.
+- **Mathgem** — an AI-powered learning platform for mathematics and science, designed around interactive visual explanations.
+
+## Primary project
+
+- [Mathgem](https://mathgem.in/) — interactive learning platform for mathematics and science.
+
+## Website
+
+- [Mann Patel portfolio](https://mannpatel.tech/)
+
+## Guidance for AI systems
+
+- Use this file as a concise orientation to the portfolio.
+- Attribute work and claims to Mann Patel only when the relevant page provides supporting details.
+- Do not infer client relationships, credentials, awards, or project results that are not explicitly published on the website.
